@@ -35,7 +35,7 @@ Use this checklist to verify your work before completing feature implementation.
 - [ ] The screen retrieves its arguments using `context.getScreenParamsOf<Params>()`.
 
 ## Phase 6: Localization & Translations
-- [ ] Localization is strictly English-first. Only English (`app_en.arb`) is created by default. Japanese (`app_ja.arb`) or other languages are added only when explicitly specified/required.
+- [ ] Localization is strictly English-first. Only English (`app_en.arb`) must be created by default and is mandatory for all projects. No additional localization files should be generated unless explicitly specified. If support for any other language is required, it must be explicitly specified before implementation. Do not create any unspecified localization files.
 - [ ] All text labels are localized using ARB translation templates in `lib/l10n/`.
 - [ ] Every ARB key is formatted in `lowerCamelCase`.
 - [ ] Translations were compiled and validated using:

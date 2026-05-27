@@ -16,7 +16,7 @@ lib/
 │       ├── model/      # Feature-specific API models (if applicable)
 │       └── repo/       # Feature-specific repositories (if applicable)
 ├── helpers/            # Infrastructure services (sp_helper.dart, url_helpers.dart)
-├── l10n/               # Multilingual translations (app_en.arb, app_ja.arb)
+├── l10n/               # Localization templates (app_en.arb)
 ├── models/             # Shared or application-wide models (app_error_model.dart)
 ├── providers/          # Global state management and abstract bases (_base.dart, _mixins.dart, view_model.dart)
 ├── services/           # Mixins and HTTP client implementation (_mixins_api.dart, web_api_services.dart)

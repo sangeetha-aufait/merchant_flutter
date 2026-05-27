@@ -7,7 +7,7 @@ This document details the localization architecture, rules, and commands to mana
 The application implements localization using standard **Flutter localizations** (ARB files).
 
 - **Source Translations Directory**: `lib/l10n/`
-- **Supported Translation Locales**: Localization must be strictly English-first. Only English (`app_en.arb`) must be created by default and is mandatory for all projects. No additional localization files should be generated unless explicitly specified. Japanese (`app_ja.arb`) is optional and should be added only when specifically requested or required. If any other language support is needed, it must be explicitly specified before implementation. No unspecified language localization should be created. (configured inside `main.dart` and the localization yaml settings).
+- **Supported Translation Locales**: Localization must be strictly English-first. Only English (`app_en.arb`) must be created by default and is mandatory for all projects. No additional localization files should be generated unless explicitly specified. If support for any other language is required, it must be explicitly specified before implementation. Do not create any unspecified localization files. (configured inside `main.dart` and the localization yaml settings).
 - **Global Helper**: `LanguageProvider` handles switching locales, fetching language lists, and persisting the user's selected language in `SharedPreferences`.
 
 ## Rules for ARB Keys & Formatting
@@ -16,7 +16,7 @@ The application implements localization using standard **Flutter localizations**
 2. **Key Formatting**: Keys inside `.arb` files must follow **`lowerCamelCase`** rules:
    - **Correct**: `"profileTitle": "User Profile"`
    - **Incorrect**: `"Profile_title": "User Profile"`, `"PROFILE_TITLE": "User Profile"`
-3. **Translation Content**: Maintain identical key sets across both `app_en.arb` and `app_ja.arb` files to prevent compile-time generation errors.
+3. **Translation Content**: Maintain identical key sets across all active `.arb` files to prevent compile-time generation errors.
 
 ```json
 // Example lib/l10n/app_en.arb
