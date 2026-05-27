@@ -30,7 +30,7 @@ These rules represent the absolute constraints of this project. Both developers 
 
 ## 6. Localization
 - **Rule**: Localization must be strictly English-first. Only English (`app_en.arb`) must be created by default and is mandatory for all projects. No additional localization files should be generated unless explicitly specified. If support for any other language is required, it must be explicitly specified before implementation. Do not create any unspecified localization files.
-- **Rule**: Never use hardcoded String literals in presentation widgets. All copy must be localized using ARB files under `lib/l10n/` and these localised strings are to be used.
+- **Rule**: Never use hardcoded String literals in presentation widgets. Only localized texts must be used and no hardcoded texts. All copy must be localized using ARB files under `lib/l10n/` and these localised strings are to be used.
 - **Rule**: Keys inside `.arb` files must follow `lowerCamelCase` formatting.
 - **Rule**: After modifying an `.arb` file, run `fvm flutter gen-l10n`.
 

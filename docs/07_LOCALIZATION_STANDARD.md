@@ -12,7 +12,7 @@ The application implements localization using standard **Flutter localizations**
 
 ## Rules for ARB Keys & Formatting
 
-1. **Rule**: String values must never be hardcoded in any presentation widget or screen file.
+1. **Rule**: String values must never be hardcoded in any presentation widget or screen file. Only localized texts must be used and no hardcoded texts. All copy must be localized using ARB files under `lib/l10n/` and these localized strings are to be used.
 2. **Key Formatting**: Keys inside `.arb` files must follow **`lowerCamelCase`** rules:
    - **Correct**: `"profileTitle": "User Profile"`
    - **Incorrect**: `"Profile_title": "User Profile"`, `"PROFILE_TITLE": "User Profile"`
