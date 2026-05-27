@@ -63,12 +63,15 @@ extension MyFeatureRepo on WebAPIService {
 
 This project implements centralized error mapping logic inside the network mixin (`lib/services/_mixins_api.dart`):
 
-### 1. Dio Errors (`onDioError`)
-- Handles timeouts, connection errors, and cancellation errors.
-- **Connection Issues**: Auto-redirects to `/ConnectionFailedScreen` inside `onDioError` when an active internet dropout is caught.
+### 1. Dio Exceptions (`onDioException`)
+- Handles `DioException` cases such as timeouts, connection failures, and request cancellations.
+- **Connection Issues**:
+  - Automatically redirects to `/ConnectionFailedScreen` inside `onDioException` when an active internet connectivity failure is detected.
 - **Bad Responses**:
-  - Checks if the response map holds authentication or token failures (`"Message": "Unauthenticated"` or `"message": "Unauthenticated"`).
-  - Triggers an `APIException` with `EnumAPIExceptions.invalidToken` which immediately logs the user out.
+  - Checks if the response map contains authentication or token failures (`"Message": "Unauthenticated"` or `"message": "Unauthenticated"`).
+  - Triggers an `APIException` with `EnumAPIExceptions.invalidToken`, which immediately logs the user out.
+- **Rule**:
+  - Always use `DioException` and `DioExceptionType` for API and network exception handling. Never use `DioError`, as it is deprecated in newer Dio versions (`dio: ^5.x`).
 
 ### 2. Status Validation (`validateResStatusData`)
 - Parses incoming JSON and extracts specific API-level status codes:
