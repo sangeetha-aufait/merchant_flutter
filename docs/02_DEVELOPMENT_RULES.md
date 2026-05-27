@@ -29,7 +29,8 @@ These rules represent the absolute constraints of this project. Both developers 
 - **Rule**: Do not duplicate core business flows or utilities. Always check `lib/utils/extensions.dart` and `lib/utils/app_build_methods.dart` for helpers first.
 
 ## 6. Localization
-- **Rule**: Never use hardcoded String literals in presentation widgets. All copy must be localized using ARB files under `lib/l10n/`.
+- **Rule**: Localization must be strictly English-first. Only English (`app_en.arb`) must be created by default and is mandatory for all projects. No additional localization files should be generated unless explicitly specified. Japanese (`app_ja.arb`) is optional and should be added only when specifically requested or required. If any other language support is needed, it must be explicitly specified before implementation. No unspecified language localization should be created.
+- **Rule**: Never use hardcoded String literals in presentation widgets. All copy must be localized using ARB files under `lib/l10n/` and these localised strings are to be used.
 - **Rule**: Keys inside `.arb` files must follow `lowerCamelCase` formatting.
 - **Rule**: After modifying an `.arb` file, run `fvm flutter gen-l10n`.
 

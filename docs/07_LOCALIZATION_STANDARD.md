@@ -7,7 +7,7 @@ This document details the localization architecture, rules, and commands to mana
 The application implements localization using standard **Flutter localizations** (ARB files).
 
 - **Source Translations Directory**: `lib/l10n/`
-- **Supported Translation Locales**: English (`app_en.arb`) and Japanese (`app_ja.arb`) (configured inside `main.dart` and the localization yaml settings).
+- **Supported Translation Locales**: Localization must be strictly English-first. Only English (`app_en.arb`) must be created by default and is mandatory for all projects. No additional localization files should be generated unless explicitly specified. Japanese (`app_ja.arb`) is optional and should be added only when specifically requested or required. If any other language support is needed, it must be explicitly specified before implementation. No unspecified language localization should be created. (configured inside `main.dart` and the localization yaml settings).
 - **Global Helper**: `LanguageProvider` handles switching locales, fetching language lists, and persisting the user's selected language in `SharedPreferences`.
 
 ## Rules for ARB Keys & Formatting
